@@ -2,4 +2,4 @@ training_file: "ph1_train.h5"
 scoring_file: "ph1_validation.h5"
 prediction_file: "ph1_preds.h5"
 X_cols: ['N', 'evtID', 'm_time', 'm_x', 'm_y', 'm_z']
-Y_cols: ['E', 'R']
+Y_cols: ['evtID', 'E', 'R']
