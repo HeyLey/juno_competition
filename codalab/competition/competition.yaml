@@ -176,14 +176,14 @@ leaderboard:
       sort: asc
     KSC:
       label: KSC
-      leaderboard: &id001
+      leaderboard: &id002
         label: Results
         rank: 1
       rank: 1
       sort: asc
     KSV:
       label: KSV
-      leaderboard: &id001
+      leaderboard: &id003
         label: Results
         rank: 1
       rank: 1
