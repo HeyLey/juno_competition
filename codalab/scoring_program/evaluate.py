@@ -14,7 +14,7 @@ reference_dir = os.path.join(input_dir, 'ref')
 
 reference_file = os.path.join(reference_dir, 'true_info_ph1.csv')
 files = glob.glob(submit_dir + "/*.csv")
-prediction_file = files[0] #os.path.join(submit_dir, 'preds.csv')
+prediction_file = files[0] 
 
 if not os.path.isdir(submit_dir):
     print("{} doesn't exist".format(submit_dir))
@@ -31,8 +31,9 @@ else:
     prediction = prediction.sort_values('evtID')
 
     if not np.array_equal(reference['evtID'], prediction['evtID']):
-        print("Invalid column EvtID")
-        exit(1)
+        print("Invalid column EvtID\n")
+        sys.stderr.write("Invalid column EvtID\n")
+        sys.exit()
      
     E_diff  = np.mean((reference['E'] - prediction['E']) ** 2)
     R_diff = np.mean((reference['R'] - prediction['R']) ** 2)
