@@ -1,4 +1,5 @@
 import sys, os
+import glob
 
 import numpy as np
 import pandas as pd
@@ -12,7 +13,8 @@ submit_dir = os.path.join(input_dir, 'res')
 reference_dir = os.path.join(input_dir, 'ref')
 
 reference_file = os.path.join(reference_dir, 'true_info_ph1.csv')
-prediction_file = os.path.join(submit_dir, 'preds.csv')
+files = glob.glob(submit_dir + "/*.csv")
+prediction_file = files[0] #os.path.join(submit_dir, 'preds.csv')
 
 if not os.path.isdir(submit_dir):
     print("{} doesn't exist".format(submit_dir))
@@ -28,20 +30,25 @@ else:
     reference  = reference.sort_values('evtID')
     prediction = prediction.sort_values('evtID')
 
-    #if not np.array_equal(reference['evtID'], prediction['evtID']):
-     #   continue
+    if not np.array_equal(reference['evtID'], prediction['evtID']):
+        print("Invalid column EvtID")
+        exit(1)
      
     E_diff  = np.mean((reference['E'] - prediction['E']) ** 2)
     R_diff = np.mean((reference['R'] - prediction['R']) ** 2)
-    score = R_diff * 0.001 + E_diff * 10
+    score = R_diff * 0.01 + E_diff * 10
    
     output_filename = os.path.join(output_dir, 'scores.txt')
 
+    print("Total: {} \n".format(score))
+    print("E: {} \n".format(E_diff))
+    print("R: {} \n".format(R_diff))
+
     with open(output_filename, 'w') as output_file:
-        output_file.write("MSE: {}".format(score))
+        output_file.write("Total: {}".format(score))
         output_file.write("\n")
-        output_file.write("MSE E: {}".format(E_diff))
+        output_file.write("E: {}".format(E_diff))
         output_file.write("\n")
-        output_file.write("MSE R: {}".format(R_diff))
+        output_file.write("R: {}".format(R_diff))
 
 
