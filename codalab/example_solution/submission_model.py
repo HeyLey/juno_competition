@@ -2,16 +2,13 @@ import numpy as np
 import pandas as pd
 
 class Model:
-    def fit(self, X, Y):
-        return self
-
-
-    def predict(self, X):
+    def run(self, xs, y):
+        a = xs[0]
+        b = xs[1]
+        c = xs[2]
         pred = pd.DataFrame()
-        pred['evtID'] = X['evtID']
-        keys = ['E', 'R']
-        for col in keys:
-            pred[col] = np.random.normal(
-                                size=len(X)
-                            )
+        pred["evtID"] = [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119]
+        pred["R"] = [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119]
+        pred["E"] = [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119]
+
         return pred
