@@ -1,14 +1,16 @@
 import numpy as np
 import pandas as pd
+import sys
+
 
 class Model:
-    def run(self, xs, y):
-        a = xs[0]
-        b = xs[1]
-        c = xs[2]
-        pred = pd.DataFrame()
-        pred["evtID"] = [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119]
-        pred["R"] = [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119]
-        pred["E"] = [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119]
+    def run(self, pmts_pos, spmt_hits, lpmt_hist, true_info, test_data):
+        x = test_data["event"].unique()
+        pred = pd.DataFrame({
+            "evtID": x,
+            "R": np.random.normal(size=len(x)),
+            "E": np.random.normal(size=len(x))
+        	})
+        
 
         return pred
