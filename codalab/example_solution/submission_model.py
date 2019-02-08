@@ -4,8 +4,8 @@ import sys
 
 
 class Model:
-    def run(self, pmts_pos, spmt_hits, lpmt_hist, true_info, test_data):
-        x = test_data["event"].unique()
+    def run(self, pmts_pos, spmt_hits, lpmt_hist, true_info, test_l_hits, test_s_hits):
+        x = test_l_hits["event"].unique()
         pred = pd.DataFrame({
             "evtID": x,
             "R": np.random.normal(size=len(x)),
