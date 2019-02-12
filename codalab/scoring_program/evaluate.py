@@ -37,7 +37,7 @@ else:
      
     E_diff  = np.mean((reference['E'] - prediction['E']) ** 2)
     R_diff = np.mean((reference['R'] - prediction['R']) ** 2)
-    score = R_diff * 0.01 + E_diff * 10
+    score = R_diff / 100000 + E_diff * 100
    
     output_filename = os.path.join(output_dir, 'scores.txt')
 
