@@ -33,7 +33,7 @@ import submission_model
 
 model = submission_model.Model()
 
-pred = model.run(pmts_pos, spmt_hits, lpmt_hist, true_info, test_l_hits, test_s_hits):
+pred = model.run(pmts_pos, spmt_hits, lpmt_hits, true_info, test_l_hits, test_s_hits)
 
 answer_path = os.path.join(output_dir, "pred.csv")
 pred.to_csv(answer_path, index=False)
