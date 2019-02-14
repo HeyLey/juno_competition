@@ -12,7 +12,7 @@ output_dir = sys.argv[2]
 submit_dir = os.path.join(input_dir, 'res')
 reference_dir = os.path.join(input_dir, 'ref')
 
-reference_file = os.path.join(reference_dir, 'test_true_info.csv')
+reference_file = os.path.join(reference_dir, 'test/test_true_info.csv')
 files = glob.glob(submit_dir + "/*.csv")
 prediction_file = files[0] 
 
