@@ -4,7 +4,7 @@ import sys
 
 
 class Model:
-    def run(self, pmts_pos, spmt_hits, lpmt_hist, true_info, test_l_hits, test_s_hits):
+    def run(self, pmts_pos, spmt_hits, lpmt_hits, true_info, test_l_hits, test_s_hits):
 
         """
         pmts_pos - positions of small and large PMTs
